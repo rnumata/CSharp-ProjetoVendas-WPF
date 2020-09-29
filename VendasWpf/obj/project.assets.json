@@ -5720,19 +5720,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SAMS BARIGUI\\.nuget\\packages\\": {}
+    "C:\\Users\\Administrador\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SAMS BARIGUI\\Desktop\\VS\\VendasWpf\\VendasWpf\\VendasWpf.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\Desktop\\VS\\CSharp-ProjetoVendasWPF\\VendasWpf\\VendasWpf.csproj",
       "projectName": "VendasWpf",
-      "projectPath": "C:\\Users\\SAMS BARIGUI\\Desktop\\VS\\VendasWpf\\VendasWpf\\VendasWpf.csproj",
-      "packagesPath": "C:\\Users\\SAMS BARIGUI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SAMS BARIGUI\\Desktop\\VS\\VendasWpf\\VendasWpf\\obj\\",
+      "projectPath": "C:\\Users\\Administrador\\Desktop\\VS\\CSharp-ProjetoVendasWPF\\VendasWpf\\VendasWpf.csproj",
+      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrador\\Desktop\\VS\\CSharp-ProjetoVendasWPF\\VendasWpf\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SAMS BARIGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
