@@ -39,14 +39,34 @@ namespace VendasWpf.Views
             }
         }
 
-
         // Metodo para abrir outro formulário
-        /// 1- Instancia o formulário a ser aberto
-        /// 2- aplica o metodo ShowDialog()
         private void menuCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-            frmCadastrarProduto frm = new frmCadastrarProduto();
-            frm.ShowDialog();
+            
         }
+
+        private void menuCadastrarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            SubMenu.Visibility = Visibility.Visible;
+            ParentPanel.Children.Clear();
+            frmCadastrarCliente pChild = new frmCadastrarCliente();
+            ParentPanel.Children.Add(pChild);
+        }
+
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            SubMenu.Visibility = Visibility.Collapsed;
+            ParentPanel.Children.Clear();
+            Image img = new Image
+            {
+                //Source = new BitmapImage(new Uri("pack://application:,,,/Images/logo.png", UriKind.RelativeOrAbsolute))
+            };
+            ParentPanel.Children.Add(img);
+        }
+
+
+
+
     }
 }

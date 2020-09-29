@@ -7,16 +7,31 @@
         mc:Ignorable="d"
         Title="VendasWPF" Height="450" Width="822" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" FontFamily="Georgia" Closing="Window_Closing">
     <Grid>
-        <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Height="25px" Width="822px" Background="DarkGray" >
-            <MenuItem Header="_Arquivo">
-                <MenuItem x:Name="menusair" Header="Sair" Click="menusair_Click"/>
-            </MenuItem>
-            <MenuItem Header="_Cadastrar">
-                <MenuItem x:Name="menuCadastrarProduto" Header="_Produto" Click="menuCadastrarProduto_Click"/>
-            </MenuItem>
-            <MenuItem Header="_Sobre">
-                <MenuItem x:Name="Equipe" Header="Equipe"/>
-            </MenuItem>
-        </Menu>
+        <DockPanel>
+            <StackPanel Name="Menu" DockPanel.Dock="Top">
+                <Menu Height="Auto" Width="Auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="DarkGray" >
+                    <MenuItem Header="_Arquivo">
+                        <MenuItem x:Name="menusair" Header="Sair" Click="menusair_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="_Cadastrar">
+                        <MenuItem x:Name="menuCadastrarCliente" Header="_Cliente" Click="menuCadastrarCliente_Click" />
+                        <MenuItem x:Name="menuCadastrarVendedor" Header="_Vendedor"/>
+                        <MenuItem x:Name="menuCadastrarProduto" Header="_Produto" />
+                    </MenuItem>
+                    <MenuItem x:Name="menuVenda" Header="_Venda"/>
+                    <MenuItem Header="_Sobre">
+                        <MenuItem x:Name="Equipe" Header="Equipe"/>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            <StackPanel Name="SubMenu" DockPanel.Dock="Top" Background="#FFF0F0F0" Visibility="Collapsed">
+                <Menu Height="Auto" Width="Auto" HorizontalAlignment="Right" VerticalContentAlignment="Stretch">
+                    <MenuItem x:Name="CloseChild" Header="✖" Click="Close_Click" />
+                </Menu>
+            </StackPanel>
+            <StackPanel Name="ParentPanel">
+                <Image Source="/Images/logo.png" Stretch="UniformToFill"/>
+            </StackPanel>
+        </DockPanel>    
     </Grid>
 </Window>
