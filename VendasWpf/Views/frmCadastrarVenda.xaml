@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="VendasWpf.Views.frmCadastrarVenda"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VendasWpf.Views"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid>
+        <DockPanel>
+            <StackPanel Background="White">
+                <GroupBox Header="Manter Venda" Margin="0" Padding="20" Width="500" Height="480">
+                    <StackPanel>
+                        <TextBlock Text="Cliente :" HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Width="150" />
+                        <ComboBox x:Name="cboClientes" Width="250" HorizontalAlignment="Left" Margin="0"/>
+                        <TextBlock Text="Vendedor :" HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Width="150" />
+                        <ComboBox x:Name="cboVendedores" Width="250" HorizontalAlignment="Left" Margin="0"/>
+                        <TextBlock Text="Produto :" HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Width="150" />
+                        <ComboBox x:Name="cboProdutos" Width="250" HorizontalAlignment="Left" Margin="0"/>
+                        <TextBlock Text="Quantidade" HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap"/>
+                        <TextBox x:Name="txtQuantidade" HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Width="150" FontSize="16"/>
+                        <Button x:Name="btnAdicionarItem" Content="Adicionar" Width="80" Height="30" Margin="0,-30,0,0" TabIndex="5" FontWeight="Bold" Click="btnAdicionarItem_Click" />
+                        <DataGrid x:Name="dtaProdutos" Height="150" Margin="0,10" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nome" Width="1.5*" Binding="{Binding Nome}"/>
+                                <DataGridTextColumn Header="Preço" Width="1*" Binding="{Binding Preco}"/>
+                                <DataGridTextColumn Header="Quantidade" Width="1*" Binding="{Binding Quantidade}"/>
+                                <DataGridTextColumn Header="Subtotal" Width="1*" Binding="{Binding Subtotal}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label x:Name="lblTotal" Content="Total" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </DockPanel>
+            
+    </Grid>
+</UserControl>

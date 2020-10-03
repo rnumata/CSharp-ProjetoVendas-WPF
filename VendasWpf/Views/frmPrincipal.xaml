@@ -15,10 +15,11 @@
                     </MenuItem>
                     <MenuItem Header="_Cadastrar">
                         <MenuItem x:Name="menuCadastrarCliente" Header="_Cliente" Click="menuCadastrarCliente_Click" />
-                        <MenuItem x:Name="menuCadastrarVendedor" Header="_Vendedor"/>
-                        <MenuItem x:Name="menuCadastrarProduto" Header="_Produto" />
+                        <MenuItem x:Name="menuCadastrarVendedor" Header="_Vendedor" Click="menuCadastrarVendedor_Click"/>
+                        <MenuItem x:Name="menuCadastrarProduto" Header="_Produto" Click="menuCadastrarProduto_Click_1"  />
                     </MenuItem>
-                    <MenuItem x:Name="menuVenda" Header="_Venda"/>
+                    <MenuItem x:Name="menuCadastrarVenda" Header="_Venda" Click="menuCadastrarVenda_Click" />
+                    <MenuItem x:Name="menuListagem" Header="_Listagem"/>
                     <MenuItem Header="_Sobre">
                         <MenuItem x:Name="Equipe" Header="Equipe"/>
                     </MenuItem>

@@ -11,7 +11,13 @@ namespace VendasWpf.Models
     {
         public String Email { get; set; }
 
+       //public override string ToString()
+       //{
+       //   return $"{Id} | {Nome}";
+       //}
     }
+
+    
 
 
 }

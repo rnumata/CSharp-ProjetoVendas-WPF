@@ -21,6 +21,9 @@ namespace VendasWpf.Views
     /// </summary>
     public partial class frmCadastrarCliente : UserControl
     {
+
+        private Cliente cliente;
+
         public frmCadastrarCliente()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace VendasWpf.Views
         {
             if (ValidarInput())
             {
-                Cliente cliente = new Cliente();
+                cliente = new Cliente();
                 cliente.Nome = txtNome.Text;
                 cliente.Cpf = txtCpf.Text.Replace("-", "").Replace(".", "").Replace(",","");
                 cliente.Email = txtEmail.Text;
@@ -57,11 +60,14 @@ namespace VendasWpf.Views
 
 
         private void btnConsultarCliente_Click(object sender, RoutedEventArgs e)
-        {
-                btnCadastrarCliente.IsEnabled = false;
-                Cliente cliente = ClienteDAO.BuscarPorCpf(txtCpf.Text.Replace("-", "").Replace(".", "").Replace(",", ""));
+        { 
+                cliente = ClienteDAO.BuscarPorCpf(txtCpf.Text.Replace("-", "").Replace(".", "").Replace(",", ""));
                 if (cliente != null)
                 {
+                    btnCadastrarCliente.IsEnabled = false;
+                    btnRemoverCliente.IsEnabled = true;
+                    btnAtualizarCliente.IsEnabled = true;
+                    
                     txtId.Text = cliente.Id.ToString();
                     txtNome.Text = cliente.Nome;
                     txtCpf.Text = cliente.Cpf.ToString();
@@ -74,36 +80,53 @@ namespace VendasWpf.Views
                     LimparCampos();
                     btnCadastrarCliente.IsEnabled = true;
                 } 
+            
         }
 
 
         private void btnRemoverCliente_Click(object sender, RoutedEventArgs e)
         {
-            btnCadastrarCliente.IsEnabled = false;
-            btnConsultarCliente.IsEnabled = false;
-            Cliente cliente = ClienteDAO.BuscarPorCpf(txtCpf.Text.Replace("-", "").Replace(".", "").Replace(",", ""));
-
             if (cliente != null)
             {
-                if (ClienteDAO.RemoverCliente(cliente))
-                {
-                    MessageBox.Show("Cliente Removido", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimparCampos();
-                    btnCadastrarCliente.IsEnabled = true;
-                    btnConsultarCliente.IsEnabled = true;
-                } else
-                {
-                    MessageBox.Show("Cliente não cadastrado", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LimparCampos();
-                }
-            } else
-            {
-                MessageBox.Show("Informe CPF", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Error);
-                LimparCampos();
                 btnCadastrarCliente.IsEnabled = true;
                 btnConsultarCliente.IsEnabled = true;
+                btnRemoverCliente.IsEnabled = false;
+                btnAtualizarCliente.IsEnabled = false;
+
+                ClienteDAO.RemoverCliente(cliente);
+                MessageBox.Show("Cliente Removido", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Information);
+                LimparCampos();       
+            } else
+            {
+                btnCadastrarCliente.IsEnabled = true;
+                btnConsultarCliente.IsEnabled = true;
+
+                MessageBox.Show("Cliente não foi removido", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Error);
+                LimparCampos();
             }
 
+        }
+
+        private void btnAtualizarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            if (cliente != null)
+            {
+                btnCadastrarCliente.IsEnabled = true;
+                btnConsultarCliente.IsEnabled = true;
+                btnRemoverCliente.IsEnabled = false;
+                btnAtualizarCliente.IsEnabled = false;
+
+                cliente.Nome = txtNome.Text;
+                cliente.Cpf = txtCpf.Text.Replace("-","").Replace(",","").Replace(".","");
+                cliente.Email = txtEmail.Text;
+                ClienteDAO.AtualizarCliente(cliente);
+                MessageBox.Show("Cliente Atualizado", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Information);
+                LimparCampos();
+            } else
+            {
+                MessageBox.Show("Cliente não foi alterado", "VendasWpf", MessageBoxButton.OK, MessageBoxImage.Error);
+                LimparCampos();
+            }
         }
 
 
@@ -123,7 +146,6 @@ namespace VendasWpf.Views
 
         }
 
-        
-
+       
     }
 }

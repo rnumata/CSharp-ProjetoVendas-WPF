@@ -30,16 +30,23 @@ namespace VendasWpf.DAL
         }
 
 
-        public static bool RemoverCliente(Cliente cliente)
+        public static void RemoverCliente(Cliente cliente)
         {
-            if (BuscarPorCpf(cliente.Cpf) != null)
-            {
-                _context.Clientes.Remove(cliente);
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
+            _context.Clientes.Remove(cliente);
+            _context.SaveChanges();        
         }
+
+
+        public static void AtualizarCliente(Cliente cliente)
+        {
+            _context.Clientes.Update(cliente);
+            _context.SaveChanges();
+        }
+
+
+        public static List<Cliente> Listarclientes() => _context.Clientes.ToList();
+
+        public static Cliente BuscarPorId(int id) => _context.Clientes.Find(id);
 
     }
 }

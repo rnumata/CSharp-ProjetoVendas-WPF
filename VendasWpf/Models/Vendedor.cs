@@ -12,5 +12,10 @@ namespace VendasWpf.Models
     {
         public double Salario { get; set; }
 
+        //public override string ToString()
+        //{
+        //    return $"{Id} | {Nome}";
+        //}
+
     }
 }

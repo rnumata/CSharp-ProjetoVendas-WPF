@@ -20,5 +20,7 @@ namespace VendasWpf.Models
         public Vendedor Vendedor { get; set; }
         public List<ItemVenda> Itens { get; set; }
 
+       
+
     }
 }
