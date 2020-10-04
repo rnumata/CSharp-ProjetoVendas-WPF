@@ -25,7 +25,7 @@ namespace VendasWpf.Views
 
         private double total = 0;
 
-        //Lista de objstos dinamicos
+        //Lista de objetos dinamicos
         private List<dynamic> itens = new List<dynamic>();
 
 
@@ -40,38 +40,43 @@ namespace VendasWpf.Views
         /// </summary>
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            cboClientes.ItemsSource = ClienteDAO.Listarclientes();
-            cboClientes.SelectedValuePath = "Id";
-            cboClientes.DisplayMemberPath = "Nome";  //tb tem o ToString na classe
+            cboClientes.ItemsSource = ClienteDAO.Listarclientes();  //já preenche o combobox
+            cboClientes.SelectedValuePath = "Id";                   // É o Id do objeto que será selecionado
+            cboClientes.DisplayMemberPath = "Nome";                 //É a identificacao da coluna da tabela clientes e que será mostrado seu valor. Pode ser usado o Tostring tb
 
             cboVendedores.ItemsSource = VendedorDAO.ListarVendedores();
-            cboVendedores.SelectedValuePath = "Id";
-            cboVendedores.DisplayMemberPath = "Nome"; //tb tem o ToString na classe
+            cboVendedores.SelectedValuePath = "Id";                 
+            cboVendedores.DisplayMemberPath = "Nome"; 
 
             cboProdutos.ItemsSource = ProdutoDAO.ListarProdutos();
-            cboProdutos.SelectedValuePath = "Id";
-            cboProdutos.DisplayMemberPath = "Nome";  //tb tem o ToString na classe
+            cboProdutos.SelectedValuePath = "Id";     
+            cboProdutos.DisplayMemberPath = "Nome";  
 
         }
 
 
         private void btnAdicionarItem_Click(object sender, RoutedEventArgs e)
         {
-            //Maneira de pegar o valor selecionado na ComboBox
-            int pp = (int)cboProdutos.SelectedValue;
-            Produto produto = ProdutoDAO.BuscarPorId(pp);
+                                                                    //Maneira de pegar o valor selecionado na ComboBox
+            int id = (int)cboProdutos.SelectedValue;                //SelectedValue é o valor selecionado no SelectedValuePath
+            Produto produto = ProdutoDAO.BuscarPorId(id);
             
             PopularItensVenda(produto);
             PopularDataGrid(produto);
 
-            dtaProdutos.ItemsSource = itens;
-            dtaProdutos.Items.Refresh();
+            dtaProdutos.ItemsSource = itens;                        //ItemSource do datagrid é quem recebe a lista de itens dinamicos
+            dtaProdutos.Items.Refresh();                            //refresh o datagrid
 
             total += Convert.ToInt32(txtQuantidade.Text) * produto.Preco;
             lblTotal.Content = $"Total: {total:C2}";
         }
 
 
+
+        /// <summary>
+        /// Metodo para popular o datagrid com um objeto dinamico
+        /// </summary>
+        /// <param name="produto"></param>
         private void PopularDataGrid(Produto produto)
         {
 
@@ -85,10 +90,13 @@ namespace VendasWpf.Views
             };
 
             itens.Add(item);
-
         }
 
 
+
+        /// <summary>
+        ///  Esse metodo popula o List<ItemVenda> que foi declarado e instanciado na classe Venda
+        /// </summary>
         private void PopularItensVenda(Produto produto)
         {
             venda.Itens.Add(
@@ -99,7 +107,34 @@ namespace VendasWpf.Views
                     Quantidade = Convert.ToInt32(txtQuantidade.Text)
                 }
             );
+
+            //ItemVenda item = new ItemVenda();
+            //item.Produto = produto;
+            //item.Preco = produto.Preco;
+            //item.Quantidade = Convert.ToInt32(txtQuantidade.Text);
+            //venda.Itens.Add(item);
         }
 
+
+
+        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+            int idCliente = (int)cboClientes.SelectedValue;
+            Cliente cliente = ClienteDAO.BuscarPorId(idCliente);
+            int idVendedor = (int)cboVendedores.SelectedValue;
+            Vendedor vendedor = VendedorDAO.BuscarPorId(idVendedor);
+
+            venda.Cliente = cliente;
+            venda.Vendedor = vendedor;
+
+            if (VendaDAO.Cadastrar(venda))
+            {
+                MessageBox.Show("Venda Cadastrada", "VendasWPF", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else
+            {
+                MessageBox.Show("Venda NAO Cadastrada", "VendasWPF", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
     }
 }

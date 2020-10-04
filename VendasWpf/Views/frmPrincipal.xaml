@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendasWpf.Views"
         mc:Ignorable="d"
-        Title="VendasWPF" Height="450" Width="822" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" FontFamily="Georgia" Closing="Window_Closing">
+        Title="VendasWPF" Height="550" Width="822" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" FontFamily="Georgia" Closing="Window_Closing">
     <Grid>
         <DockPanel>
             <StackPanel Name="Menu" DockPanel.Dock="Top">
