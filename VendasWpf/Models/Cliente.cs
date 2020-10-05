@@ -7,7 +7,7 @@ namespace VendasWpf.Models
 {
 
     [Table("Clientes")]
-    class Cliente : Pessoa
+    public class Cliente : Pessoa
     {
         public String Email { get; set; }
 

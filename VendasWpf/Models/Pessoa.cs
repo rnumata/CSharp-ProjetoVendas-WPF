@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VendasWpf.Models
 {
-    class Pessoa : BaseModel
+    public class Pessoa : BaseModel
     {
 
         public string Nome { get; set; }

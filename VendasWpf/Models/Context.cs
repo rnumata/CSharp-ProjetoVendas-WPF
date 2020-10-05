@@ -18,7 +18,7 @@ namespace VendasWpf.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer
-                (@"Server=(localdb)\mssqllocaldb;Database=VendasWPF;Trusted_Connection=true");
+                (@"Server=(localdb)\mssqllocaldb;Database=VendasWPF;Trusted_Connection=true").UseLazyLoadingProxies();
         }
 
     }

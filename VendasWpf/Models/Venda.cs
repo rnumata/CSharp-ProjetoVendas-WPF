@@ -6,7 +6,7 @@ using System.Text;
 namespace VendasWpf.Models
 {
     [Table("Vendas")]
-    class Venda : BaseModel
+    public class Venda : BaseModel
     {
 
         public Venda()
@@ -17,7 +17,9 @@ namespace VendasWpf.Models
         }
 
         public virtual Cliente Cliente { get; set; }
+
         public virtual Vendedor Vendedor { get; set; }
+
         public virtual List<ItemVenda> Itens { get; set; }
 
        

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace VendasWpf.Models
 {
-    class BaseModel
+    public abstract class BaseModel
     {
 
         public BaseModel() => Criadoem = DateTime.Now;

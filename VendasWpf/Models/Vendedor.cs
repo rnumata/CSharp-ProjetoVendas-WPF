@@ -8,7 +8,7 @@ namespace VendasWpf.Models
 {
 
     [Table("Vendedores")]
-    class Vendedor : Pessoa
+     public class Vendedor : Pessoa
     {
         public double Salario { get; set; }
 
