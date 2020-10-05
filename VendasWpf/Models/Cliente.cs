@@ -11,6 +11,8 @@ namespace VendasWpf.Models
     {
         public String Email { get; set; }
 
+        public virtual ICollection<Venda> Vendas { get; set; }
+
        //public override string ToString()
        //{
        //   return $"{Id} | {Nome}";

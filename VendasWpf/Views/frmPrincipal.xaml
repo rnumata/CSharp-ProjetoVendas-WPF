@@ -19,7 +19,7 @@
                         <MenuItem x:Name="menuCadastrarProduto" Header="_Produto" Click="menuCadastrarProduto_Click_1"  />
                     </MenuItem>
                     <MenuItem x:Name="menuCadastrarVenda" Header="_Venda" Click="menuCadastrarVenda_Click" />
-                    <MenuItem x:Name="menuListagem" Header="_Listagem"/>
+                    <MenuItem x:Name="menuListagem" Header="_Listagem" Click="menuListagem_Click" />
                     <MenuItem Header="_Sobre">
                         <MenuItem x:Name="Equipe" Header="Equipe"/>
                     </MenuItem>

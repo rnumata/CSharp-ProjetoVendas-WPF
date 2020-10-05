@@ -134,7 +134,7 @@ namespace VendasWpf.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/VendasWpf;V1.0.0.0;component/views/frmcadastrarvenda.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/VendasWpf;component/views/frmcadastrarvenda.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\frmCadastrarVenda.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

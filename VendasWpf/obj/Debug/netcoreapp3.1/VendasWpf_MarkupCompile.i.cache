@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Administrador\Desktop\VS\CSharp-ProjetoVendasWPF\VendasWpf\App.xaml
-5-2027705235
+6-536752074
 
-261772980760
-222829212163
-Views\frmCadastrarCliente.xaml;Views\frmCadastrarProduto.xaml;Views\frmCadastrarVenda.xaml;Views\frmCadastrarVendedor.xaml;Views\frmPrincipal.xaml;
+29-480797133
+224550611454
+Views\frmCadastrarCliente.xaml;Views\frmCadastrarProduto.xaml;Views\frmCadastrarVenda.xaml;Views\frmCadastrarVendedor.xaml;Views\frmPrincipal.xaml;Views\relListagemDeVendas.xaml;
 
 False
 

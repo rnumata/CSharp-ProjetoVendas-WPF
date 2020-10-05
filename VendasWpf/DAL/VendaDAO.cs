@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using VendasWpf.Models;
 
@@ -17,6 +18,8 @@ namespace VendasWpf.DAL
                 return true;
             
         }
+
+        public static List<ItemVenda> ListarVendas() => _context.ItemVendas.ToList();
 
     }
 }

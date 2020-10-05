@@ -77,6 +77,14 @@ namespace VendasWpf.Views
 
 
 
+        private void menuListagem_Click(object sender, RoutedEventArgs e)
+        {
+            SubMenu.Visibility = Visibility.Visible;
+            ParentPanel.Children.Clear();
+            relListagemDeVendas pChild = new relListagemDeVendas();
+            ParentPanel.Children.Add(pChild);
+        }
+
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
@@ -89,6 +97,6 @@ namespace VendasWpf.Views
             ParentPanel.Children.Add(img);
         }
 
-        
+      
     }
 }

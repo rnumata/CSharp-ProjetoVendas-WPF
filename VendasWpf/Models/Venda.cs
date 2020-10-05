@@ -16,9 +16,9 @@ namespace VendasWpf.Models
             Itens = new List<ItemVenda>();
         }
 
-        public Cliente Cliente { get; set; }
-        public Vendedor Vendedor { get; set; }
-        public List<ItemVenda> Itens { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Vendedor Vendedor { get; set; }
+        public virtual List<ItemVenda> Itens { get; set; }
 
        
 
